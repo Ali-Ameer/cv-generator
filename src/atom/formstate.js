@@ -16,5 +16,20 @@ export const formState = atom({
       skills: [],
       image: "",
     },
+    step2: [
+      {
+        organization: "",
+        position: "",
+        duration: "",
+        description: "",
+      },
+    ],
+    step3: [
+      {
+        title: "",
+        link: "",
+        description: "",
+      },
+    ],
   },
 });

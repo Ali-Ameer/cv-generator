@@ -6,7 +6,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import Navigation from "../../components/navigation/Navigation";
 
-export const PersonalInfo = () => {
+export const Step1 = () => {
   const {
     formik,
     setCurrentStep,

@@ -8,26 +8,26 @@ export default function useStep2() {
   const [formData, setFormData] = useRecoilState(formState);
 
   const initialValues = {
-    experience: [...formData.step2],
+    projects: [...formData.step3],
   };
 
   const validationSchema = Yup.object().shape({
-    experience: Yup.array().of(
+    projects: Yup.array().of(
       Yup.object().shape({
-        organization: Yup.string().required("Organization is required"),
-        position: Yup.string().required("Position is required"),
-        duration: Yup.array()
-          .of(Yup.string().required())
-          .required("Duration is required"),
+        title: Yup.string().required("Title is required"),
+        link: Yup.string().required("Link is required"),
         description: Yup.string().required("Description is required"),
       })
     ),
   });
 
   const onSubmit = (values) => {
-    setFormData((prev) => ({ ...prev, step2: [...values.experience] }));
+    setFormData((prev) => ({ ...prev, step3: [...values.projects] }));
     setCurrentStep(currentStep + 1);
   };
+
+  console.log(formData.step3);
+  console.log(currentStep);
 
   return {
     initialValues,

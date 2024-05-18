@@ -1,10 +1,11 @@
 import { Card, Divider, Steps } from "antd";
-import { PersonalInfo } from "../step1/PersonalInfo";
+import { Step1 } from "../step1/Step1";
 import { Step2 } from "../step2/Step2";
 import { useRecoilState } from "recoil";
 import { currentStepState } from "../../atom/navigationState";
 import { formState } from "../../atom/formstate";
 import { useEffect } from "react";
+import { Step3 } from "../step3/Step3";
 
 const { Step } = Steps;
 
@@ -17,7 +18,7 @@ const HomePage = () => {
       id: 1,
       name: "personalInfo",
       title: "Personal information",
-      component: <PersonalInfo />,
+      component: <Step1 />,
     },
     {
       id: 2,
@@ -29,6 +30,7 @@ const HomePage = () => {
       id: 3,
       name: "projectInfo",
       title: "Project Info",
+      component: <Step3 />,
     },
     {
       id: 4,
@@ -47,10 +49,10 @@ const HomePage = () => {
     // },
   ];
   // console.log(currentStep);
-  useEffect(() => {
-    console.log(formData);
 
-  }, [formData])
+  useEffect(() => {
+    console.log("formData ", formData);
+  }, [formData]);
 
   return (
     <div>
