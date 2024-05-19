@@ -70,10 +70,6 @@ const HomePage = () => {
     },
   ];
 
-  useEffect(() => {
-    console.log("formData ", formData);
-  }, [formData]);
-
   return (
     <div>
       <div className="titleSection">
