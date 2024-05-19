@@ -31,3 +31,50 @@ h2 {
   display: flex;
   justify-content: center;
 }
+
+.text-primary {
+  font-size: 1.5rem;
+  color: #0d6efd;
+}
+
+.imgContainer {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  opacity: 1;
+  margin: 0;
+  transition: all ease-in-out 200ms;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.imgContainer:hover {
+  border: 2px solid #4caecf;
+  box-shadow: none;
+}
+
+.imgContainer.selected {
+  border: 5px solid #4caecf;
+  box-shadow: none;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.templateChecked {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.templateChecked .checkedIcon {
+  font-size: 56px;
+  color: #98eda1;
+}

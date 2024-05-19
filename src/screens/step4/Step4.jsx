@@ -1,13 +1,13 @@
 import { Button, Col, Divider, Flex, Form, Row, Space } from "antd";
 import Input from "../../components/input/Input";
-import useStep2 from "./useStep2";
+import useStep4 from "./useStep4";
 import { CloseOutlined } from "@ant-design/icons";
 import Navigation from "../../components/navigation/Navigation";
 import { FieldArray, Formik } from "formik";
 import DateInput from "../../components/input/DateInput";
 
-export const Step2 = () => {
-  const { initialValues, validationSchema, onSubmit } = useStep2();
+export const Step4 = () => {
+  const { initialValues, validationSchema, onSubmit } = useStep4();
 
   return (
     <Formik
@@ -20,16 +20,16 @@ export const Step2 = () => {
 
         return (
           <Form name="vertical_form" layout="vertical">
-            <FieldArray name="experience">
+            <FieldArray name="education">
               {({ insert, remove, push }) => (
                 <Space
                   direction="vertical"
                   size="middle"
                   style={{ width: "100%" }}
                 >
-                  {formik.values.experience?.map((friend, index) => (
+                  {formik.values.education?.map((friend, index) => (
                     <div key={index}>
-                      {formik.values.experience?.length > 1 && (
+                      {formik.values.education?.length > 1 && (
                         <Flex  flex={1} justify="flex-end">
                           <Button
                             icon={<CloseOutlined />}
@@ -41,75 +41,75 @@ export const Step2 = () => {
                       <Row gutter={16}>
                         <Col xs={{ span: 24 }} md={{ span: 8 }}>
                           <Input
-                            label="Organization"
-                            name={`experience.${index}.organization`}
-                            value={formik.values.experience[index].organization}
+                            label="College"
+                            name={`education.${index}.college`}
+                            value={formik.values.education[index].college}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             error={
-                              formik.errors.experience?.[index]?.organization
+                              formik.errors.education?.[index]?.college
                             }
                             touched={
-                              formik.touched.experience?.[index]?.organization
+                              formik.touched.education?.[index]?.college
                             }
                           />
                         </Col>
 
                         <Col xs={{ span: 24 }} md={{ span: 8 }}>
-                          <Input
-                            label="Position"
-                            name={`experience.${index}.position`}
-                            value={formik.values.experience[index].position}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.errors.experience?.[index]?.position}
-                            touched={
-                              formik.touched.experience?.[index]?.position
-                            }
-                          />
-                        </Col>
-
-                        <Col xs={{ span: 24 }} md={{ span: 8 }}>
-                          <Form.Item label="Duration">
+                          <Form.Item label="Year">
                             <DateInput
                               picker="month"
-                              name={`experience.${index}.duration`}
-                              value={formik.values.experience[index].duration}
+                              name={`education.${index}.year`}
+                              value={formik.values.education[index].year}
                               onChange={(e, date) => {
                                 formik.setFieldValue(
-                                  `experience[${index}].duration`,
+                                  `education[${index}].year`,
                                   e === null ? null : date
                                 );
                               }}
                               onBlur={formik.handleBlur}
                               error={
-                                formik.errors.experience?.[index]?.duration
+                                formik.errors.education?.[index]?.year
                               }
                               touched={
-                                formik.touched.experience?.[index]?.duration
+                                formik.touched.education?.[index]?.year
                               }
                             />
                           </Form.Item>
                         </Col>
 
+                        <Col xs={{ span: 24 }} md={{ span: 8 }}>
+                          <Input
+                            label="Qualification"
+                            name={`education.${index}.qualification`}
+                            value={formik.values.education[index].qualification}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.errors.education?.[index]?.qualification}
+                            touched={
+                              formik.touched.education?.[index]?.qualification
+                            }
+                          />
+                        </Col>
+
                         <Col span={24}>
                           <Input
                             label="Description"
-                            name={`experience.${index}.description`}
-                            value={formik.values.experience[index].description}
+                            name={`education.${index}.description`}
+                            value={formik.values.education[index].description}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             error={
-                              formik.errors.experience?.[index]?.description
+                              formik.errors.education?.[index]?.description
                             }
                             touched={
-                              formik.touched.experience?.[index]?.description
+                              formik.touched.education?.[index]?.description
                             }
                           />
                         </Col>
                       </Row>
 
-                      {formik.values.experience?.length !== index + 1 && (
+                      {formik.values.education?.length !== index + 1 && (
                         <Divider />
                       )}
                       </div>
@@ -119,14 +119,14 @@ export const Step2 = () => {
                     <Button
                       onClick={() =>
                         push({
-                          organization: "",
-                          position: "",
-                          duration: "",
+                          college: "",
+                          year: "",
+                          qualification: "",
                           description: "",
                         })
                       }
                     >
-                      add more experience
+                      add more education
                     </Button>
                   </Flex>
                 </Space>

@@ -175,7 +175,7 @@ export const Step1 = () => {
 
       <Row gutter={16}>
         <Col span={24}>
-          <UploadImage onChange={(value) => console.log("image", value)} />
+          <UploadImage onChange={(value) => formik.setFieldValue("image", value[0])} />
         </Col>
       </Row>
 

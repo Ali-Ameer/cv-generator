@@ -4,7 +4,6 @@ import useStep3 from "./useStep3";
 import { CloseOutlined } from "@ant-design/icons";
 import Navigation from "../../components/navigation/Navigation";
 import { FieldArray, Formik } from "formik";
-import DateInput from "../../components/input/DateInput";
 
 export const Step3 = () => {
   const { initialValues, validationSchema, onSubmit } = useStep3();
@@ -17,7 +16,7 @@ export const Step3 = () => {
       onSubmit={(values) => onSubmit(values)}
     >
       {(formik) => {
-        console.log(formik.values);
+
         return (
           <Form name="vertical_form" layout="vertical">
             <FieldArray name="projects">
@@ -27,17 +26,18 @@ export const Step3 = () => {
                   size="middle"
                   style={{ width: "100%", marginBottom: "2rem" }}
                 >
-                  {formik.values.projects?.map((friend, index) => (
+                  {formik.values.projects?.map((project, index) => (
                     <>
                       {formik.values.projects?.length > 1 && (
-                        <Flex flex={1} justify="flex-end">
+                        <Flex key={index} flex={1} justify="flex-end">
                           <Button
                             icon={<CloseOutlined />}
                             onClick={() => remove(index)}
                           />
                         </Flex>
                       )}
-                      <Row gutter={16}>
+                      <div key={index}>
+                      <Row key={index} gutter={16}>
                         <Col xs={{ span: 24 }} md={{ span: 12 }}>
                           <Input
                             label="Title"
@@ -82,6 +82,7 @@ export const Step3 = () => {
                       {formik.values.projects?.length !== index + 1 && (
                         <Divider />
                       )}
+                      </div>
                     </>
                   ))}
 

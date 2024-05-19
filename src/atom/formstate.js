@@ -14,8 +14,9 @@ export const formState = atom({
       github: "",
       position: "",
       skills: [],
-      image: "",
+      image: {},
     },
+
     step2: [
       {
         organization: "",
@@ -24,6 +25,7 @@ export const formState = atom({
         description: "",
       },
     ],
+
     step3: [
       {
         title: "",
@@ -31,5 +33,28 @@ export const formState = atom({
         description: "",
       },
     ],
+
+    step4: [
+      {
+        college: "",
+        year: "",
+        qualification: "",
+        description: "",
+      },
+    ],
+
+    step5: {
+      languages: [],
+      achievements: [],
+      certificates: [],
+    },
+
+    step6: {
+      color: "#1677ff",
+    },
+
+    step7: {
+      templateType: 1,
+    },
   },
 });

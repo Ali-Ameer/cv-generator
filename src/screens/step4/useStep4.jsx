@@ -3,26 +3,27 @@ import { currentStepState } from "../../atom/navigationState";
 import { formState } from "../../atom/formstate";
 import { useRecoilState } from "recoil";
 
-export default function useStep2() {
+export default function useStep4() {
   const [currentStep, setCurrentStep] = useRecoilState(currentStepState);
   const [formData, setFormData] = useRecoilState(formState);
 
   const initialValues = {
-    projects: [...formData.step3],
+    education: formData.step4,
   };
 
   const validationSchema = Yup.object().shape({
-    projects: Yup.array().of(
+    education: Yup.array().of(
       Yup.object().shape({
-        title: Yup.string().required("Title is required"),
-        link: Yup.string().required("Link is required"),
+        college: Yup.string().required("College is required"),
+        year: Yup.array().of(Yup.string().required()).required("Year is required"),
+        qualification: Yup.string().required("qualification is required"),
         description: Yup.string().required("Description is required"),
       })
     ),
   });
 
   const onSubmit = (values) => {
-    setFormData((prev) => ({ ...prev, step3: [...values.projects] }));
+    setFormData((prev) => ({ ...prev, step4: [...values.education] }));
     setCurrentStep(currentStep + 1);
   };
 

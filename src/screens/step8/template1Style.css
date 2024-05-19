@@ -1,0 +1,48 @@
+.cv-container {
+    padding: 20px;
+    color: #444;
+    font-family: Arial, sans-serif;
+  }
+  
+  .personImg {
+    display: flex;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    overflow: hidden;
+  }
+  .profile-image {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .cv-title {
+    color: #444;
+  }
+  
+  .cv-subtitle {
+    color: #444;
+    font-size: 16px;
+  }
+  
+  .cv-section-title {
+    color: #444;
+  }
+  
+  .cv-text {
+    color: #444;
+    font-size: 14px;
+  }
+  
+  .cv-bold {
+    font-weight: bold;
+  }
+  
+  .cv-experience, .cv-project, .cv-education {
+    margin-bottom: 10px;
+  }
+  
